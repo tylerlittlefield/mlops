@@ -1,0 +1,13 @@
+stages:
+  install-dependencies:
+    cmd: sh dependencies.sh
+  fit-model:
+    cmd: Rscript model.R
+    deps:
+    - model.R
+    - data/tweets.csv
+    - data/products.csv
+    outs:
+    - fit.md
+    - conf.md
+    - accuracy.md

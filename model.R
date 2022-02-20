@@ -2,11 +2,7 @@ library(tidymodels)
 library(textrecipes)
 library(stringr)
 
-tweets <- aws.s3::s3read_using(
-  FUN = function(x) tibble::as_tibble(read.csv(x)),
-  object = "tweets.csv",
-  bucket = "jnj-capstone-2022"
-)
+tweets <- tibble::as_tibble(read.csv("data/tweets.csv"))
 
 tweets_split <- initial_split(tweets, strata = medical_device)
 tweets_train <- training(tweets_split)
@@ -39,7 +35,7 @@ tweets_wf <- workflow() %>%
   add_recipe(tweets_rec)
 
 # model spec
-tweets_spec <- rand_forest() %>%
+tweets_spec <- rand_forest(trees = 100) %>%
   set_mode("classification") %>%
   set_engine("ranger")
 
@@ -65,17 +61,17 @@ tweets_res <- tweets_fit %>%
 # recipe in free text form
 writeLines(
   text = c("## Fit information", "```", capture.output(tweets_fit), "```"),
-  con = "outputs/fit.md"
+  con = "fit.md"
 )
 
 # confusion matrix
 writeLines(
   text = c("## Confusion matrix", "```", capture.output(conf_mat(tweets_res, truth = medical_device, .pred_class)), "```"),
-  con = "outputs/conf.md"
+  con = "conf.md"
 )
 
 # accuracy
 writeLines(
   text = c("## Accuracy", capture.output(knitr::kable(accuracy(tweets_res, truth = medical_device, .pred_class)))),
-  con = "outputs/accuracy.md"
+  con = "accuracy.md"
 )

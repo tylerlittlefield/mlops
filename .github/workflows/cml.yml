@@ -6,21 +6,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: iterative/setup-cml@v1
+      - uses: iterative/setup-dvc@v1
       - uses: r-lib/actions/setup-r@master
-      - name: Train model
+      - name: ML Pipeline
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        run: |
-          sh sys_deps.sh
-          Rscript r_deps.R
-          Rscript model.R
-      - name: Write CML report
-        env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cat outputs/fit.md >> report.md
-          cat outputs/conf.md >> report.md
-          cat outputs/accuracy.md >> report.md
+          dvc pull
+          dvc repro
+          cat fit.md >> report.md
+          cat conf.md >> report.md
+          cat accuracy.md >> report.md
           cml-send-comment report.md
+      - name: commit_results
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: Tyler Littlefield
+          author_email: tylerlittlefield@hey.com
+          message: "ML Pipeline Results"
+          add: "accuracy.md conf.md fit.md dvc.lock"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
