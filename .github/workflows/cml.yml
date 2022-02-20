@@ -30,6 +30,6 @@ jobs:
           author_name: Tyler Littlefield
           author_email: tylerlittlefield@hey.com
           message: "ML Pipeline Results"
-          add: "accuracy.md conf.md fit.md metrics.json dvc.lock"
+          add: "metrics.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

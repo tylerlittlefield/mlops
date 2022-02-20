@@ -1,1 +1,35 @@
-["{\"metrics\":[{\".metric\":\"accuracy\",\".estimator\":\"binary\",\".estimate\":0.9165},{\".metric\":\"kap\",\".estimator\":\"binary\",\".estimate\":0.4133}],\"roc_auc_false\":[{\".metric\":\"roc_auc\",\".estimator\":\"binary\",\".estimate\":0.9092}],\"roc_auc_true\":[{\".metric\":\"roc_auc\",\".estimator\":\"binary\",\".estimate\":0.0908}],\"precision\":[{\".metric\":\"precision\",\".estimator\":\"binary\",\".estimate\":0.9267}]}"]
+{
+  "metrics": [
+    {
+      ".metric": "accuracy",
+      ".estimator": "binary",
+      ".estimate": 0.9156
+    },
+    {
+      ".metric": "kap",
+      ".estimator": "binary",
+      ".estimate": 0.4211
+    }
+  ],
+  "roc_auc_false": [
+    {
+      ".metric": "roc_auc",
+      ".estimator": "binary",
+      ".estimate": 0.882
+    }
+  ],
+  "roc_auc_true": [
+    {
+      ".metric": "roc_auc",
+      ".estimator": "binary",
+      ".estimate": 0.118
+    }
+  ],
+  "precision": [
+    {
+      ".metric": "precision",
+      ".estimator": "binary",
+      ".estimate": 0.9282
+    }
+  ]
+}
