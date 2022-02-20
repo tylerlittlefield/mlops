@@ -4,5 +4,6 @@ install.packages(c(
   "textrecipes",
   "stringr",
   "aws.s3",
-  "tibble"
+  "tibble",
+  "stopwords"
 ))
