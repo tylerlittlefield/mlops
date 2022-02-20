@@ -17,7 +17,7 @@ jobs:
         run: |
           dvc pull
           dvc repro
-          cat outputs/fit.md >> report.md
-          cat outputs/conf.md >> report.md
-          cat outputs/accuracy.md >> report.md
+          cat fit.md >> report.md
+          cat conf.md >> report.md
+          cat accuracy.md >> report.md
           cml-send-comment report.md

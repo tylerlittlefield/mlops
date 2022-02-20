@@ -61,17 +61,17 @@ tweets_res <- tweets_fit %>%
 # recipe in free text form
 writeLines(
   text = c("## Fit information", "```", capture.output(tweets_fit), "```"),
-  con = "outputs/fit.md"
+  con = "fit.md"
 )
 
 # confusion matrix
 writeLines(
   text = c("## Confusion matrix", "```", capture.output(conf_mat(tweets_res, truth = medical_device, .pred_class)), "```"),
-  con = "outputs/conf.md"
+  con = "conf.md"
 )
 
 # accuracy
 writeLines(
   text = c("## Accuracy", capture.output(knitr::kable(accuracy(tweets_res, truth = medical_device, .pred_class)))),
-  con = "outputs/accuracy.md"
+  con = "accuracy.md"
 )

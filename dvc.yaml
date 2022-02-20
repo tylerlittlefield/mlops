@@ -1,11 +1,13 @@
 stages:
-  install-system-dependencies:
-    cmd: sh sys_deps.sh
-  install-r-dependencies:
-    cmd: Rscript r_deps.R
+  install-dependencies:
+    cmd: sh dependencies.sh
   fit-model:
     cmd: Rscript model.R
     deps:
     - model.R
     - data/tweets.csv
     - data/products.csv
+    outs:
+    - fit.md
+    - conf.md
+    - accuracy.md
