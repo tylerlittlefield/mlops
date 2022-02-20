@@ -8,21 +8,15 @@ jobs:
       - uses: iterative/setup-cml@v1
       - uses: iterative/setup-dvc@v1
       - uses: r-lib/actions/setup-r@master
-      - name: Train model
+      - name: ML Pipeline
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        run: |
-          # pull the data
-          dvc pull
-
-          # reproduce the ml pipeline
-          dvc repro
-      - name: Write CML report
-        env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          dvc pull
+          dvc repro
           cat outputs/fit.md >> report.md
           cat outputs/conf.md >> report.md
           cat outputs/accuracy.md >> report.md
