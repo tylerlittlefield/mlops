@@ -2,11 +2,7 @@ library(tidymodels)
 library(textrecipes)
 library(stringr)
 
-tweets <- aws.s3::s3read_using(
-  FUN = function(x) tibble::as_tibble(read.csv(x)),
-  object = "tweets.csv",
-  bucket = "jnj-capstone-2022"
-)
+tweets <- tibble::as_tibble(read.csv("data/tweets.csv"))
 
 tweets_split <- initial_split(tweets, strata = medical_device)
 tweets_train <- training(tweets_split)

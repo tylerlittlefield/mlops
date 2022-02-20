@@ -1,0 +1,14 @@
+stages:
+  install-system-dependencies:
+    cmd: sh sys_deps.sh
+  install-r-dependencies:
+    cmd: Rscript r_deps.R
+  fit-model:
+    cmd: Rscript model.R
+    deps:
+    - model.R
+    - data/tweets.csv
+    - data/products.csv
+    metrics:
+    - metrics.json:
+        cache: false
