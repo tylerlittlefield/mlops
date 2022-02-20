@@ -29,10 +29,10 @@ tweets_rec <- recipe(medical_device ~ text, data = tweets_train) %>%
   step_stem(text) %>%
   step_tfidf(text)
 
-# whats it look like?
-tweets_rec %>%
-  prep() %>%
-  juice()
+# # whats it look like?
+# tweets_rec %>%
+#   prep() %>%
+#   juice()
 
 # workflow
 tweets_wf <- workflow() %>%
