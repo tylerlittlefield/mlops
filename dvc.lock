@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  fit-model:
+    cmd: Rscript model.R
+    deps:
+    - path: data/products.csv
+      md5: bec3fcdddcdb4363d86df84f04110568
+      size: 13165373
+    - path: data/tweets.csv
+      md5: 6cc42163f26e9fe221c181e5c4a04c6b
+      size: 6074649
+    - path: model.R
+      md5: 557532d2d7d3f8bec44f7a83abd5fcd7
+      size: 2112

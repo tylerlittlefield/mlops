@@ -1,6 +1,4 @@
 [core]
-    remote = myremote
+  remote = storage
 ['remote "storage"']
     url = s3://jnj-capstone-2022/
-['remote "myremote"']
-    url = /tmp/dvcstore

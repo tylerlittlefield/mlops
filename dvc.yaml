@@ -9,6 +9,3 @@ stages:
     - model.R
     - data/tweets.csv
     - data/products.csv
-    metrics:
-    - metrics.json:
-        cache: false

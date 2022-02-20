@@ -14,6 +14,10 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
+          # pull the data
+          dvc pull
+
+          # reproduce the ml pipeline
           dvc repro
       - name: Write CML report
         env:

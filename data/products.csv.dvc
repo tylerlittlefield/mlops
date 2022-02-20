@@ -1,3 +1,9 @@
+md5: b77b460e172973ecea93b376d45639f1
+frozen: true
+deps:
+- etag: bec3fcdddcdb4363d86df84f04110568
+  size: 13165373
+  path: s3://jnj-capstone-2022/products.csv
 outs:
 - md5: bec3fcdddcdb4363d86df84f04110568
   size: 13165373
