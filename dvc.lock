@@ -22,3 +22,5 @@ stages:
     - path: fit.md
       md5: ef0b962969ecc415a9ed7a608cdbb2d4
       size: 1716
+  install-dependencies:
+    cmd: sh dependencies.sh
