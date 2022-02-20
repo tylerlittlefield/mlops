@@ -5,5 +5,6 @@ install.packages(c(
   "stringr",
   "aws.s3",
   "tibble",
-  "stopwords"
+  "stopwords",
+  "ranger"
 ))
