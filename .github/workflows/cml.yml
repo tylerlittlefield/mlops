@@ -8,7 +8,8 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: Train model
         run: |
-          Rscript deps.R
+          sh sys_deps.sh
+          Rscript r_deps.R
           Rscript model.R
       - name: Write CML report
         env:
