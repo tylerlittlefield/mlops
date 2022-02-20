@@ -39,7 +39,7 @@ tweets_wf <- workflow() %>%
   add_recipe(tweets_rec)
 
 # model spec
-tweets_spec <- rand_forest() %>%
+tweets_spec <- rand_forest(trees = 100) %>%
   set_mode("classification") %>%
   set_engine("ranger")
 
