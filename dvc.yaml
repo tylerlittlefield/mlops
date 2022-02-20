@@ -1,6 +1,6 @@
 stages:
-  install-dependencies:
-    cmd: sh dependencies.sh
+  # install-dependencies:
+  #   cmd: sh dependencies.sh
   fit-model:
     cmd: Rscript model.R
     deps:
@@ -11,3 +11,6 @@ stages:
     - fit.md
     - conf.md
     - accuracy.md
+    metrics:
+    - metrics.json:
+        cache: false

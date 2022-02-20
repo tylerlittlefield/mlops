@@ -17,16 +17,19 @@ jobs:
         run: |
           dvc pull
           dvc repro
+          git fetch --prune
+          echo "## Diff" >> report.md
+          dvc metrics diff main --show-md >> report.md
           cat fit.md >> report.md
           cat conf.md >> report.md
           cat accuracy.md >> report.md
           cml-send-comment report.md
-      - name: commit_results
+      - name: Commit Results
         uses: EndBug/add-and-commit@v5
         with:
           author_name: Tyler Littlefield
           author_email: tylerlittlefield@hey.com
           message: "ML Pipeline Results"
-          add: "accuracy.md conf.md fit.md dvc.lock"
+          add: "accuracy.md conf.md fit.md metrics.json dvc.lock"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
