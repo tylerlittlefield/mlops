@@ -1,0 +1,20 @@
+name: cml
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - name: Train model
+        run: |
+          Rscript deps.R
+          Rscript model.R
+      - name: Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat outputs/fit.md >> report.md
+          cat outputs/conf.md >> report.md
+          cat outputs/accuracy.md >> report.md
+          cml-send-comment report.md
