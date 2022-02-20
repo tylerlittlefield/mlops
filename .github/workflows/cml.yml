@@ -6,6 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: iterative/setup-cml@v1
+      - uses: iterative/setup-dvc@v1
       - uses: r-lib/actions/setup-r@master
       - name: Train model
         env:
