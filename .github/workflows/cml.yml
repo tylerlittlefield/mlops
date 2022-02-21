@@ -31,7 +31,7 @@ jobs:
           author_name: Tyler Littlefield
           author_email: tylerlittlefield@hey.com
           message: "ML Pipeline Results"
-          pull: "--rebase --autostash"
+          pull_strategy: "--rebase --autostash"
           add: "metrics.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
