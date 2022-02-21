@@ -11,3 +11,6 @@ stages:
     - fit.md
     - conf.md
     - accuracy.md
+    metrics:
+    - metrics.json:
+        cache: false

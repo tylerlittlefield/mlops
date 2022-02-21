@@ -75,3 +75,14 @@ writeLines(
   text = c("## Accuracy", capture.output(knitr::kable(accuracy(tweets_res, truth = medical_device, .pred_class)))),
   con = "accuracy.md"
 )
+
+# metrics.json
+metrics <- list(
+  metrics = metrics(tweets_res, medical_device, .pred_class),
+  roc_auc_false = roc_auc(tweets_res, medical_device, .pred_FALSE),
+  roc_auc_true = roc_auc(tweets_res, medical_device, .pred_TRUE),
+  precision = precision(tweets_res, medical_device, .pred_class)
+)
+
+
+jsonlite::write_json(metrics, "metrics.json", pretty = TRUE)

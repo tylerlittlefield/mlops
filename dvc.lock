@@ -10,17 +10,20 @@ stages:
       md5: 6cc42163f26e9fe221c181e5c4a04c6b
       size: 6074649
     - path: model.R
-      md5: b470de321aff59fc2a1da337d31854f4
-      size: 2088
+      md5: 1b3d407e98dc5ebefb6fb70360ada508
+      size: 2497
     outs:
     - path: accuracy.md
-      md5: 1f2fdd5186f80e56fdebd0cf0c7ba5de
+      md5: 694dcff4149d32483cc29bb2799ac2cf
       size: 119
     - path: conf.md
-      md5: fe1564658fea108a4707c51e24ff5296
+      md5: f337ef74d1617b34e55736f07f14d106
       size: 110
     - path: fit.md
-      md5: ef0b962969ecc415a9ed7a608cdbb2d4
+      md5: 4b1cf5bef0a1892559909788791a23b1
       size: 1716
+    - path: metrics.json
+      md5: 71cda2970daebb4cbfccfd93cab46eb0
+      size: 439
   install-dependencies:
     cmd: sh dependencies.sh
