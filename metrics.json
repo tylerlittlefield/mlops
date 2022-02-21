@@ -2,26 +2,26 @@
   "accuracy": {
       ".metric": "accuracy",
       ".estimator": "binary",
-      ".estimate": 0.9147
+      ".estimate": 0.9113
     },
   "kep": {
       ".metric": "kap",
       ".estimator": "binary",
-      ".estimate": 0.3835
+      ".estimate": 0.3648
     },
   "precision": {
       ".metric": "precision",
       ".estimator": "binary",
-      ".estimate": 0.9235
+      ".estimate": 0.9225
     },
   "roc_auc_false": {
       ".metric": "roc_auc",
       ".estimator": "binary",
-      ".estimate": 0.9013
+      ".estimate": 0.8745
     },
   "roc_auc_true": {
       ".metric": "roc_auc",
       ".estimator": "binary",
-      ".estimate": 0.0987
+      ".estimate": 0.1255
     }
 }
