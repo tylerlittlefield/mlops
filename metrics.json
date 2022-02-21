@@ -7,21 +7,21 @@
   "kep": {
       ".metric": "kap",
       ".estimator": "binary",
-      ".estimate": 0.3679
+      ".estimate": 0.386
     },
   "precision": {
       ".metric": "precision",
       ".estimator": "binary",
-      ".estimate": 0.9225
+      ".estimate": 0.9248
     },
   "roc_auc_false": {
       ".metric": "roc_auc",
       ".estimator": "binary",
-      ".estimate": 0.8912
+      ".estimate": 0.8842
     },
   "roc_auc_true": {
       ".metric": "roc_auc",
       ".estimator": "binary",
-      ".estimate": 0.1088
+      ".estimate": 0.1158
     }
 }
