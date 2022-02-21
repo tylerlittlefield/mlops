@@ -22,4 +22,5 @@ if (!require("tibble")) install.packages("tibble")
 if (!require("stopwords")) install.packages("stopwords")
 if (!require("ranger")) install.packages("ranger")
 if (!require("knitr")) install.packages("knitr")
+if (!require("yaml")) install.packages("yaml")
 '

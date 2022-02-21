@@ -2,6 +2,8 @@ library(tidymodels)
 library(textrecipes)
 library(stringr)
 
+params <- yaml::read_yaml("params.yaml")
+
 tweets <- tibble::as_tibble(read.csv("data/tweets.csv"))
 
 tweets_split <- initial_split(tweets, strata = medical_device)
@@ -35,7 +37,7 @@ tweets_wf <- workflow() %>%
   add_recipe(tweets_rec)
 
 # model spec
-tweets_spec <- rand_forest(trees = 100) %>%
+tweets_spec <- rand_forest(trees = params$tune$trees) %>%
   set_mode("classification") %>%
   set_engine("ranger")
 
@@ -78,11 +80,15 @@ writeLines(
 
 # metrics.json
 metrics <- list(
-  metrics = metrics(tweets_res, medical_device, .pred_class),
+  accuracy = accuracy(tweets_res, medical_device, .pred_class),
+  kep = kap(tweets_res, medical_device, .pred_class),
+  precision = precision(tweets_res, medical_device, .pred_class),
   roc_auc_false = roc_auc(tweets_res, medical_device, .pred_FALSE),
-  roc_auc_true = roc_auc(tweets_res, medical_device, .pred_TRUE),
-  precision = precision(tweets_res, medical_device, .pred_class)
+  roc_auc_true = roc_auc(tweets_res, medical_device, .pred_TRUE)
 )
 
-
-jsonlite::write_json(metrics, "metrics.json", pretty = TRUE)
+jsonlite::write_json(
+  x = lapply(metrics, jsonlite::unbox),
+  path = "metrics.json",
+  pretty = TRUE
+)
