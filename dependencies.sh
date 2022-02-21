@@ -14,12 +14,12 @@ fi
 Rscript -e \
 '
 options(repos = c(CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"))
-if (!require("tidymodels")) install.packages("tidymodels")
-if (!require("textrecipes")) install.packages("textrecipes")
-if (!require("stringr")) install.packages("stringr")
-if (!require("aws.s3")) install.packages("aws.s3")
-if (!require("tibble")) install.packages("tibble")
-if (!require("stopwords")) install.packages("stopwords")
-if (!require("ranger")) install.packages("ranger")
-if (!require("knitr")) install.packages("knitr")
+install.packages("tidymodels")
+install.packages("textrecipes")
+install.packages("stringr")
+install.packages("aws.s3")
+install.packages("tibble")
+install.packages("stopwords")
+install.packages("ranger")
+install.packages("knitr")
 '
