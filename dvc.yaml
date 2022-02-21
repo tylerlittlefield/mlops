@@ -7,10 +7,6 @@ stages:
     - model.R
     - data/tweets.csv
     - data/products.csv
-    outs:
-    - fit.md
-    - conf.md
-    - accuracy.md
     metrics:
     - metrics.json:
         cache: false
