@@ -15,6 +15,7 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          sh dependencies.sh
           dvc pull
           dvc repro
           git fetch --prune

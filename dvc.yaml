@@ -1,6 +1,4 @@
 stages:
-  install-dependencies:
-    cmd: sh dependencies.sh
   fit-model:
     cmd: Rscript model.R
     deps:
