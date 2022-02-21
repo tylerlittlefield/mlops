@@ -14,7 +14,7 @@ fi
 Rscript -e \
 '
 options(repos = c(CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"))
-if (!require("tidymodels")) install.packages( "tidymodels")
+if (!require("tidymodels")) install.packages("tidymodels")
 if (!require("textrecipes")) install.packages("textrecipes")
 if (!require("stringr")) install.packages("stringr")
 if (!require("aws.s3")) install.packages("aws.s3")
