@@ -8,28 +8,28 @@
     {
       ".metric": "kap",
       ".estimator": "binary",
-      ".estimate": 0.3584
+      ".estimate": 0.3648
     }
   ],
   "roc_auc_false": [
     {
       ".metric": "roc_auc",
       ".estimator": "binary",
-      ".estimate": 0.8925
+      ".estimate": 0.8948
     }
   ],
   "roc_auc_true": [
     {
       ".metric": "roc_auc",
       ".estimator": "binary",
-      ".estimate": 0.1075
+      ".estimate": 0.1052
     }
   ],
   "precision": [
     {
       ".metric": "precision",
       ".estimator": "binary",
-      ".estimate": 0.9211
+      ".estimate": 0.9218
     }
   ]
 }
