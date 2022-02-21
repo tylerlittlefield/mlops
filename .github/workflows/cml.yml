@@ -16,7 +16,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           dvc pull
-          dvc repro --force
+          dvc repro
           git fetch --prune
           echo "## Diff" >> report.md
           dvc params diff main --show-md >> report.md
