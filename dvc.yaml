@@ -11,6 +11,8 @@ stages:
     - fit.md
     - conf.md
     - accuracy.md
+    params:
+    - tune.trees
     metrics:
     - metrics.json:
         cache: false
