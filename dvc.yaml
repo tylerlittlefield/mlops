@@ -7,10 +7,9 @@ stages:
     - data/products.csv
     outs:
     - fit.md
-    - conf.md
-    - accuracy.md
+    - conf.png
     params:
-    - tune.trees
+    - tune.penalty
     metrics:
     - metrics.json:
         cache: false

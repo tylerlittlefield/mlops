@@ -1,2 +1,2 @@
 tune:
-  trees: 300
+  penalty: 10

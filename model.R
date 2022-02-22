@@ -1,6 +1,7 @@
 library(tidymodels)
 library(textrecipes)
 library(stringr)
+library(themis)
 
 params <- yaml::read_yaml("params.yaml")
 
@@ -20,6 +21,7 @@ str_clean <- function(x) {
 # preprocessing recipe
 tweets_rec <- recipe(medical_device ~ text, data = tweets_train) %>%
   step_mutate_at(medical_device, fn = as.factor, skip = TRUE) %>%
+  step_upsample(medical_device) %>%
   step_mutate_at(text, fn = str_clean) %>%
   step_tokenize(text) %>%
   step_stopwords(text) %>%
@@ -37,9 +39,10 @@ tweets_wf <- workflow() %>%
   add_recipe(tweets_rec)
 
 # model spec
-tweets_spec <- rand_forest(trees = params$tune$trees) %>%
+p <- params$tune$penalty
+tweets_spec <- logistic_reg(penalty = p, mixture = 1) %>%
   set_mode("classification") %>%
-  set_engine("ranger")
+  set_engine("LiblineaR")
 
 # tie preprocess and model spec together
 tweets_mod <- tweets_wf %>%
@@ -62,33 +65,23 @@ tweets_res <- tweets_fit %>%
 
 # recipe in free text form
 writeLines(
-  text = c("## Fit information", "```", capture.output(tweets_fit), "```"),
+  text = c("```", capture.output(tweets_fit), "```"),
   con = "fit.md"
 )
 
 # confusion matrix
-writeLines(
-  text = c("## Confusion matrix", "```", capture.output(conf_mat(tweets_res, truth = medical_device, .pred_class)), "```"),
-  con = "conf.md"
-)
-
-# accuracy
-writeLines(
-  text = c("## Accuracy", capture.output(knitr::kable(accuracy(tweets_res, truth = medical_device, .pred_class)))),
-  con = "accuracy.md"
+ggsave(
+  filename = "conf.png",
+  plot = autoplot(conf_mat(tweets_res, truth = medical_device, .pred_class), type = "heatmap"),
+  width = 10,
+  height = 10
 )
 
 # metrics.json
-metrics <- list(
-  accuracy = accuracy(tweets_res, medical_device, .pred_class),
-  kep = kap(tweets_res, medical_device, .pred_class),
-  precision = precision(tweets_res, medical_device, .pred_class),
-  roc_auc_false = roc_auc(tweets_res, medical_device, .pred_FALSE),
-  roc_auc_true = roc_auc(tweets_res, medical_device, .pred_TRUE)
-)
+metrics <- summary(conf_mat(tweets_res, truth = medical_device, .pred_class))
 
 jsonlite::write_json(
-  x = lapply(metrics, jsonlite::unbox),
+  x = lapply(split(metrics, metrics$.metric), jsonlite::unbox),
   path = "metrics.json",
   pretty = TRUE
 )

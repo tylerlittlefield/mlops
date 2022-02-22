@@ -4,7 +4,6 @@
 .httr-oauth
 .DS_Store
 .Renviron
-/fit.md
-/conf.md
-/accuracy.md
+fit.md
 report.md
+conf.png
