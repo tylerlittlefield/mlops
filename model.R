@@ -77,6 +77,19 @@ ggsave(
   height = 10
 )
 
+# roc curves
+ggsave(
+  filename = "roc_true.png",
+  plot = autoplot(roc_curve(tweets_res, medical_device, .pred_TRUE)) +
+    labs(title = "ROC Curve for TRUE class")
+)
+
+ggsave(
+  filename = "roc_false.png",
+  plot = autoplot(roc_curve(tweets_res, medical_device, .pred_FALSE)) +
+    labs(title = "ROC Curve for FALSE class")
+)
+
 # metrics.json
 metrics <- summary(conf_mat(tweets_res, truth = medical_device, .pred_class))
 

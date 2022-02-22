@@ -8,6 +8,8 @@ stages:
     outs:
     - fit.md
     - conf.png
+    - roc_true.png
+    - roc_false.png
     params:
     - tune.penalty
     metrics:
