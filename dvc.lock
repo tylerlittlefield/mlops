@@ -10,20 +10,20 @@ stages:
       md5: 6cc42163f26e9fe221c181e5c4a04c6b
       size: 6074649
     - path: model.R
-      md5: 9d796cfe68ef4727f3db4ce24b107bb5
-      size: 2265
+      md5: 4307ae6f8a4a23f0e21d699bf56ffbc3
+      size: 2565
     params:
       params.yaml:
-        tune.penalty: 10
+        tune.penalty: 9
     outs:
-    - path: conf.png
-      md5: d80eb173eac5c81ad8627a4581289859
-      size: 52670
     - path: fit.md
-      md5: 993ad6e966e76c050937c0d989cdbb2d
-      size: 4368
+      md5: d2d8d207dcf83f616b8715e142a7cebc
+      size: 4302
     - path: metrics.json
-      md5: 2fc664ff7699b97f25735c7b42becb3e
-      size: 1372
+      md5: ba25ca058d735318cb90d973f5c828e4
+      size: 1370
+    - path: viz.png
+      md5: d3e771246430727786da6d94ba218902
+      size: 119599
   install-dependencies:
     cmd: sh dependencies.sh

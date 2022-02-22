@@ -19,13 +19,17 @@ jobs:
           dvc pull
           dvc repro
           git fetch --prune
+
           echo "## Diff" >> report.md
           dvc params diff main --show-md >> report.md
           dvc metrics diff main --show-md >> report.md
+
+          echo "## Visualizations" >> report.md
+          cml-publish viz.png --md >> report.md
+
           echo "## Fit information" >> report.md
           cat fit.md >> report.md
-          echo "## Confusion matrix" >> report.md
-          cml-publish conf.png --md >> report.md
+
           cml-send-comment report.md
       - name: Commit Results
         uses: EndBug/add-and-commit@v5

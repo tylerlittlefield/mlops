@@ -25,4 +25,5 @@ if (!require("knitr")) install.packages("knitr")
 if (!require("yaml")) install.packages("yaml")
 if (!require("LiblineaR")) install.packages("LiblineaR")
 if (!require("themis")) install.packages("themis")
+if (!require("patchwork")) install.packages("patchwork")
 '

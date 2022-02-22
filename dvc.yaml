@@ -7,7 +7,7 @@ stages:
     - data/products.csv
     outs:
     - fit.md
-    - conf.png
+    - viz.png
     params:
     - tune.penalty
     metrics:
