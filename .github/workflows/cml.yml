@@ -24,11 +24,11 @@ jobs:
           dvc params diff main --show-md >> report.md
           dvc metrics diff main --show-md >> report.md
 
-          echo "## Fit information" >> report.md
-          cat fit.md >> report.md
-
           echo "## Visualizations" >> report.md
           cml-publish viz.png --md >> report.md
+
+          echo "## Fit information" >> report.md
+          cat fit.md >> report.md
 
           cml-send-comment report.md
       - name: Commit Results
