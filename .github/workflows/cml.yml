@@ -27,12 +27,9 @@ jobs:
           echo "## Fit information" >> report.md
           cat fit.md >> report.md
 
-          echo "## Confusion matrix" >> report.md
-          cml-publish conf.png --md >> report.md
+          echo "## Visualizations" >> report.md
+          cml-publish viz.png --md >> report.md
 
-          echo "## ROC curves"
-          cml-publish roc_true.png --md >> report.md
-          cml-publish roc_false.png --md >> report.md
           cml-send-comment report.md
       - name: Commit Results
         uses: EndBug/add-and-commit@v5

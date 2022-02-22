@@ -2,6 +2,7 @@ library(tidymodels)
 library(textrecipes)
 library(stringr)
 library(themis)
+library(patchwork)
 
 params <- yaml::read_yaml("params.yaml")
 
@@ -69,26 +70,19 @@ writeLines(
   con = "fit.md"
 )
 
-# confusion matrix
-ggsave(
-  filename = "conf.png",
-  plot = autoplot(conf_mat(tweets_res, truth = medical_device, .pred_class), type = "heatmap"),
-  width = 10,
-  height = 10
-)
+# visuals
+p_conf <- autoplot(conf_mat(tweets_res, truth = medical_device, .pred_class), type = "heatmap") +
+  labs(title = "Confusion matrix")
 
-# roc curves
-ggsave(
-  filename = "roc_true.png",
-  plot = autoplot(roc_curve(tweets_res, medical_device, .pred_TRUE)) +
-    labs(title = "ROC Curve for TRUE class")
-)
+p_roc_true <- autoplot(roc_curve(tweets_res, medical_device, .pred_TRUE)) +
+  labs(title = "TRUE class")
 
-ggsave(
-  filename = "roc_false.png",
-  plot = autoplot(roc_curve(tweets_res, medical_device, .pred_FALSE)) +
-    labs(title = "ROC Curve for FALSE class")
-)
+p_roc_false <- autoplot(roc_curve(tweets_res, medical_device, .pred_FALSE)) +
+  labs(title = "FALSE class")
+
+plots <- p_conf + p_roc_true + p_roc_false
+
+ggsave("viz.png", plot = plots, height = 6, width = 12)
 
 # metrics.json
 metrics <- summary(conf_mat(tweets_res, truth = medical_device, .pred_class))

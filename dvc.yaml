@@ -7,9 +7,7 @@ stages:
     - data/products.csv
     outs:
     - fit.md
-    - conf.png
-    - roc_true.png
-    - roc_false.png
+    - viz.png
     params:
     - tune.penalty
     metrics:

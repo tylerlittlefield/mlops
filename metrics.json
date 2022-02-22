@@ -2,66 +2,66 @@
   "accuracy": {
       ".metric": "accuracy",
       ".estimator": "binary",
-      ".estimate": 0.8932
+      ".estimate": 0.857
     },
   "bal_accuracy": {
       ".metric": "bal_accuracy",
       ".estimator": "binary",
-      ".estimate": 0.8747
+      ".estimate": 0.88
     },
   "detection_prevalence": {
       ".metric": "detection_prevalence",
       ".estimator": "binary",
-      ".estimate": 0.82
+      ".estimate": 0.7717
     },
   "f_meas": {
       ".metric": "f_meas",
       ".estimator": "binary",
-      ".estimate": 0.9378
+      ".estimate": 0.9143
     },
   "j_index": {
       ".metric": "j_index",
       ".estimator": "binary",
-      ".estimate": 0.7493
+      ".estimate": 0.7601
     },
   "kap": {
       ".metric": "kap",
       ".estimator": "binary",
-      ".estimate": 0.5671
+      ".estimate": 0.4981
     },
   "mcc": {
       ".metric": "mcc",
       ".estimator": "binary",
-      ".estimate": 0.5959
+      ".estimate": 0.5533
     },
   "npv": {
       ".metric": "npv",
       ".estimator": "binary",
-      ".estimate": 0.4928
+      ".estimate": 0.4151
     },
   "ppv": {
       ".metric": "ppv",
       ".estimator": "binary",
-      ".estimate": 0.9811
+      ".estimate": 0.9877
     },
   "precision": {
       ".metric": "precision",
       ".estimator": "binary",
-      ".estimate": 0.9811
+      ".estimate": 0.9877
     },
   "recall": {
       ".metric": "recall",
       ".estimator": "binary",
-      ".estimate": 0.8981
+      ".estimate": 0.851
     },
   "sens": {
       ".metric": "sens",
       ".estimator": "binary",
-      ".estimate": 0.8981
+      ".estimate": 0.851
     },
   "spec": {
       ".metric": "spec",
       ".estimator": "binary",
-      ".estimate": 0.8512
+      ".estimate": 0.9091
     }
 }
