@@ -1,2 +1,5 @@
 tune:
-  penalty: 9
+  penalty_min: -5
+  penalty_max: 0
+  penalty_levels: 20
+  tokens_max: 150

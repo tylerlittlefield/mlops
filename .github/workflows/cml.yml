@@ -14,6 +14,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           sh dependencies.sh
           dvc pull
@@ -24,11 +25,23 @@ jobs:
           dvc params diff main --show-md >> report.md
           dvc metrics diff main --show-md >> report.md
 
-          echo "## Visualizations" >> report.md
-          cml-publish viz.png --md >> report.md
+          echo "## Variables" >> report.md
+          cat preprocessor_summary.md >> report.md
+
+          echo "## Final fit" >> report.md
+          cml-publish final.png --md >> report.md
+
+          echo "## Fold fits" >> report.md
+          cml-publish fold.png --md >> report.md
 
           echo "## Fit information" >> report.md
           cat fit.md >> report.md
+
+          echo "## Tuning information" >> report.md
+          cml-publish tune.png --md >> report.md
+
+          echo "## Session information" >> report.md
+          cat session.md >> report.md
 
           cml-send-comment report.md
       - name: Commit Results
@@ -37,6 +50,6 @@ jobs:
           author_name: Tyler Littlefield
           author_email: tylerlittlefield@hey.com
           message: "ML Pipeline Results"
-          add: "metrics.json"
+          add: "metrics.json estimates.csv"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
