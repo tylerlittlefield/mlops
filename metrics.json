@@ -2,62 +2,62 @@
   "accuracy": {
       ".metric": "accuracy",
       ".estimator": "binary",
-      ".estimate": 0.9273
+      ".estimate": 0.9113
     },
   "kap": {
       ".metric": "bal_accuracy",
       ".estimator": "binary",
-      ".estimate": 0.9224
+      ".estimate": 0.9135
     },
   "sens": {
       ".metric": "detection_prevalence",
       ".estimator": "binary",
-      ".estimate": 0.8417
+      ".estimate": 0.8257
     },
   "spec": {
       ".metric": "f_meas",
       ".estimator": "binary",
-      ".estimate": 0.9582
+      ".estimate": 0.9485
     },
   "ppv": {
       ".metric": "j_index",
       ".estimator": "binary",
-      ".estimate": 0.8448
+      ".estimate": 0.8269
     },
   "npv": {
       ".metric": "kap",
       ".estimator": "binary",
-      ".estimate": 0.6821
+      ".estimate": 0.6325
     },
   "mcc": {
       ".metric": "mcc",
       ".estimator": "binary",
-      ".estimate": 0.703
+      ".estimate": 0.6621
     },
   "j_index": {
       ".metric": "npv",
       ".estimator": "binary",
-      ".estimate": 0.5953
+      ".estimate": 0.5406
     },
   "bal_accuracy": {
       ".metric": "ppv",
       ".estimator": "binary",
-      ".estimate": 0.9898
+      ".estimate": 0.9896
     },
   "detection_prevalence": {
       ".metric": "precision",
       ".estimator": "binary",
-      ".estimate": 0.9898
+      ".estimate": 0.9896
     },
   "precision": {
       ".metric": "recall",
       ".estimator": "binary",
-      ".estimate": 0.9286
+      ".estimate": 0.9108
     },
   "recall": {
       ".metric": "sens",
       ".estimator": "binary",
-      ".estimate": 0.9286
+      ".estimate": 0.9108
     },
   "f_meas": {
       ".metric": "spec",
