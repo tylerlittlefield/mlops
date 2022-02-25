@@ -26,7 +26,7 @@ jobs:
           dvc metrics diff main --show-md >> report.md
 
           echo "## Variables" >> report.md
-          cat preprocessing_summary.md >> report.md
+          cat preprocessor_summary.md >> report.md
 
           echo "## Final fit" >> report.md
           cml-publish final.png >> report.md
