@@ -6,10 +6,17 @@ stages:
     - data/tweets.csv
     - data/products.csv
     outs:
+    - tune.png
+    - final.png
+    - fold.png
     - fit.md
-    - viz.png
+    - preprocessor_summary.md
+    - session.md
     params:
-    - tune.penalty
+    - tune.penalty_min
+    - tune.penalty_max
+    - tune.penalty_levels
+    - tune.tokens_max
     metrics:
     - metrics.json:
         cache: false

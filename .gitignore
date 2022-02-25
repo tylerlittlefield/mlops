@@ -6,5 +6,8 @@
 .Renviron
 fit.md
 report.md
-conf.png
-viz.png
+final.png
+fold.png
+tune.png
+preprocessor_summary.md
+session.md

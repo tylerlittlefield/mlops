@@ -14,8 +14,9 @@ fi
 Rscript -e \
 '
 options(repos = c(CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"))
+if (!require("remotes")) install.packages("remotes")
 if (!require("tidymodels")) install.packages("tidymodels")
-if (!require("textrecipes")) install.packages("textrecipes")
+if (!require("textrecipes")) remotes::install_github("tidymodels/textrecipes")
 if (!require("stringr")) install.packages("stringr")
 if (!require("aws.s3")) install.packages("aws.s3")
 if (!require("tibble")) install.packages("tibble")
@@ -26,4 +27,6 @@ if (!require("yaml")) install.packages("yaml")
 if (!require("LiblineaR")) install.packages("LiblineaR")
 if (!require("themis")) install.packages("themis")
 if (!require("patchwork")) install.packages("patchwork")
+if (!require("sessioninfo")) install.packages("sessioninfo")
+if (!require("purrr")) install.packages("purrr")
 '

@@ -7,23 +7,38 @@ stages:
       md5: bec3fcdddcdb4363d86df84f04110568
       size: 13165373
     - path: data/tweets.csv
-      md5: 6cc42163f26e9fe221c181e5c4a04c6b
-      size: 6074649
+      md5: a70b4233074ebdd4904f7f51545e9d0f
+      size: 8520634
     - path: model.R
-      md5: 4307ae6f8a4a23f0e21d699bf56ffbc3
-      size: 2565
+      md5: 0bdba41c9bf7e9fb9bbb89d9641d53a8
+      size: 5883
     params:
       params.yaml:
-        tune.penalty: 9
+        tune.penalty_levels: 20
+        tune.penalty_max: 0
+        tune.penalty_min: -5
+        tune.tokens_max: 100
     outs:
+    - path: final.png
+      md5: 7e8834173520a328f9907af7606057f3
+      size: 116973
     - path: fit.md
-      md5: d2d8d207dcf83f616b8715e142a7cebc
-      size: 4302
+      md5: 28df903b8601de625a5b4f74193a012e
+      size: 1238
+    - path: fold.png
+      md5: 1cfd1df6e33edba7a00f4a84e39acfb0
+      size: 185941
     - path: metrics.json
-      md5: ba25ca058d735318cb90d973f5c828e4
-      size: 1370
-    - path: viz.png
-      md5: d3e771246430727786da6d94ba218902
-      size: 119599
+      md5: 266a13965a613a48f2688139f3565f79
+      size: 1231
+    - path: preprocessor_summary.md
+      md5: 450ec88e7e4397e78e1f335f6c555255
+      size: 168
+    - path: session.md
+      md5: 4ef1f2f5f81594eee0a3f8858d4873d5
+      size: 9570
+    - path: tune.png
+      md5: 82decdfd2c8d7465242b373824742980
+      size: 109568
   install-dependencies:
     cmd: sh dependencies.sh

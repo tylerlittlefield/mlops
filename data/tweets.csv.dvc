@@ -1,10 +1,10 @@
-md5: 8fcb05e6d7b9434ea542e0eb99ed1cb9
+md5: 270421f82d8a7a979d7ecc362a109d41
 frozen: true
 deps:
-- etag: 68cf36d15622085da30d5cf1f69d8f40
-  size: 6074649
+- etag: ce7d880e7772e4476ba5d141a70f0c96
+  size: 8520634
   path: s3://jnj-capstone-2022/tweets.csv
 outs:
-- md5: 6cc42163f26e9fe221c181e5c4a04c6b
-  size: 6074649
+- md5: a70b4233074ebdd4904f7f51545e9d0f
+  size: 8520634
   path: tweets.csv
