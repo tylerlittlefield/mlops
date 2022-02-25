@@ -172,9 +172,15 @@ writeLines(knitr::kable(summary(preprocessor)), "preprocessor_summary.md")
 writeLines(c("```", capture.output(session_info()), "```"), "session.md")
 
 # save metrics
-final_fit %>%
+metrics <- final_fit %>%
   conf_mat_resampled(tidy = FALSE) %>%
   summary() %>%
   group_split(.metric) %>%
-  map(jsonlite::unbox) %>%
-  write_json("metrics.json", pretty = TRUE)
+  map(jsonlite::unbox)
+
+names(metrics) <- final_fit %>%
+  conf_mat_resampled(tidy = FALSE) %>%
+  summary() %>%
+  .[[".metric"]]
+
+write_json(metrics, "metrics.json", pretty = TRUE)
